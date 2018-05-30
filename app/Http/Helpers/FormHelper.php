@@ -3,7 +3,6 @@
 namespace App\Http\Helpers;
 
 use Session;
-use Carbon\Carbon;
 
 class FormHelper 
 {
@@ -24,9 +23,9 @@ class FormHelper
     		if( strpos( $key, self::$prefix ) !== false ) 
     		{
     			$all_inputs = Session::all();
-    			foreach ($all_inputs as $key_original => $value_original) 
-    				if($key == $value_original)
-    					$new_request[$key_original] = $value;		
+    			foreach ($all_inputs as $key2 => $value2) 
+    				if($key == $value2)
+    					$new_request[$key2] = $value;		
     		} 
     		else 
     			$new_request[$key] = $value;
@@ -38,8 +37,8 @@ class FormHelper
 	private static function setSessionForCloaking($keyword) 
 	{
 		$session_id = Session::getId();
-		$timestamp = Carbon::now()->timestamp;
-		$crypto_string = self::$prefix . sha1($keyword . $session_id . $timestamp );
+		$app_key = env('APP_KEY');
+		$crypto_string = self::$prefix . sha1($session_id . $keyword . $app_key );
 
 	    Session::put($keyword, $crypto_string);
 
