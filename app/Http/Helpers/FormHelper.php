@@ -3,6 +3,7 @@
 namespace App\Http\Helpers;
 
 use Session;
+use Carbon\Carbon;
 
 class FormHelper 
 {
@@ -10,7 +11,7 @@ class FormHelper
 
 	public static function cloak($keyword) 
 	{
-		$crypto_string = self::setSessionForCloaking($keyword);
+		$crypto_string = self::setSessionOnCloak($keyword);
 
 		return $crypto_string;
 	}
@@ -34,15 +35,18 @@ class FormHelper
     	return $new_request;
 	}
 
-	private static function setSessionForCloaking($keyword) 
+
+	private static function setSessionOnCloak($keyword) 
 	{
 		$session_id = Session::getId();
 		$app_key = env('APP_KEY');
-		$crypto_string = self::$prefix . sha1($session_id . $keyword . $app_key );
+		$timestamp = Carbon::now()->timestamp;
+		$crypto_string = self::$prefix . sha1($session_id . $keyword . $app_key . $timestamp);
 
 	    Session::put($keyword, $crypto_string);
 
 		return $crypto_string;
 	}
+
 	
 }
