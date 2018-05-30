@@ -18,5 +18,5 @@ The procedures which I did here might not be very useful at all cases but it can
 
 So what I did is to cloak the field names with a coded alias name which are generated randomly or by using a specific algorithm and use that as part of the form request and with validation.
 
-You can test it here: http://cloak.nelsonmelecio.com/
+You can test it here: https://cloak.nelsonmelecio.com/
 
