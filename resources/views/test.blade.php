@@ -28,13 +28,13 @@
 					  <div class="form-group">
 					    <label class="col-sm-3 control-label" for="{{ FormHelper::cloak('card_holder_name') }}"">Name on Card</label>
 					    <div class="col-sm-9">
-					      <input type="text" class="form-control" name="{{ FormHelper::cloak('card_holder_name') }}" placeholder="Card Holder's Name" value="test only">
+					      <input type="text" class="form-control" name="{{ FormHelper::cloak('card_holder_name') }}" placeholder="Card Holder's Name" >
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="col-sm-3 control-label" for="{{ FormHelper::cloak('card_number') }}"">Card Number</label>
 					    <div class="col-sm-9">
-					      <input type="text" class="form-control" name="{{ FormHelper::cloak('card_number') }}" placeholder="Debit/Credit Card Number" value="4444333322221111">
+					      <input type="text" class="form-control" name="{{ FormHelper::cloak('card_number') }}" placeholder="Debit/Credit Card Number" >
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -44,7 +44,7 @@
 					        <div class="col-xs-3">
 					          <select class="form-control col-sm-2" name="{{ FormHelper::cloak('expiry_month') }}">
 					            <option>Month</option>
-					            <option value="1" selected="selected">Jan</option>
+					            <option value="1">Jan</option>
 					            <option value="2">Feb</option>
 					            <option value="3">Mar</option>
 					            <option value="4">Apr</option>
@@ -78,7 +78,7 @@
 					  <div class="form-group">
 					    <label class="col-sm-3 control-label" for="{{ FormHelper::cloak('cvv') }}">CVV</label>
 					    <div class="col-sm-3">
-					      <input type="text" class="form-control" name="{{ FormHelper::cloak('cvv') }}" placeholder="Security Code" value="123">
+					      <input type="text" class="form-control" name="{{ FormHelper::cloak('cvv') }}" placeholder="Security Code" >
 					    </div>
 					  </div>
 					  <div class="form-group">
